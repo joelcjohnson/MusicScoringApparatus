@@ -11,25 +11,20 @@
 
 using namespace std;
 
+
 int volume = 0;
 int notevalue;
 int octavevalue;
 const int CONVST = 16;
+extern bool running;
 
 /*  PURPOSE of this object
-
 /   To control the Note Multiplexors and the Octave Multiplexor on the Analog MUX card
-
 /   To communicate with the ADC: tell it when to take a snapshot of the voltage on its
-
 /   input; listen to the ADC, it will say when it is busy or not; send to the ADC the 
-
 /   proper sequence of commands, at the proper time, for it to take snapshots.
-
 /   To sequence through all the notes of each octave - C1 to B1, then C2 to B2, etc.
-
 /   and after going through all notes & octaves, to start the process over again.
-
 */
 int timestamp = 0;
 extern QString filename;
@@ -74,7 +69,7 @@ sequencer::sequencer()
 	//  Note that the timestamp test ( '>-1' ) is always true, so the loop will go 
 
 	//  on indefinitely. 
-    for (timestamp = 0;timestamp<20;timestamp++){
+    for (timestamp = 0;timestamp<=84;timestamp++){
 
         gpio_output();
         // see if the ADC is busy doing an Analog-to-Digital conversion (BUSY == 1).

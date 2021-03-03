@@ -1,5 +1,5 @@
-#ifndef GPIO_INPUT_H
-#define GPIO_INPUT_H
+#ifndef SEQUENCER_H
+#define SEQUENCER_H
 
 class sequencer
 {

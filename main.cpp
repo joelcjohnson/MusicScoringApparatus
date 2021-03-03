@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <sequencer.h>
+#include <mainwindow.h>
 
 using namespace std;
-QString filename = "null"; //called null for testing reasons.
-
+QString filename = "No Input"; //called null for testing reasons.
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
 
     /* Our main funtion initialises the mainwindow object for our user input.

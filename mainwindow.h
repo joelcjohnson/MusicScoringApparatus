@@ -15,14 +15,16 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
-    void on_pushButton_clicked();
-
-
+public slots:
     void on_lineEdit_textChanged(const QString &arg1);
+    void on_EnterKeyButton_clicked();
+
+
+private slots:
 
 private:
     Ui::MainWindow *ui;
+
 };
 
 #endif // MAINWINDOW_H
