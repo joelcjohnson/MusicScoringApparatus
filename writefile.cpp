@@ -42,6 +42,6 @@ writefile::writefile()
     /*  This line of code writes what we are recording in real time to the text document we named   
         notice how I list the order note volume then timestamp.. later this will be different but now this is fine.      
     */
-    file << note1 << note2 << " " << octavevalue << " " << volume << " " << timestamp << endl;  
+    file << note1 << note2 << " " << octavevalue << " " << volume << " " << timestamp << endl;
 
 }
