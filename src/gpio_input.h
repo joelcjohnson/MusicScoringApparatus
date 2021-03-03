@@ -1,6 +1,6 @@
 #ifndef GPIO_INPUT_H
 #define GPIO_INPUT_H
-using namespace std;
+
 class gpio_input
 {
 public:

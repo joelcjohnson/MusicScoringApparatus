@@ -1,12 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sequencer.h>
-#include <gpio_input.h>
-#include <gpio_output.h>
-#include <writefile.h>
+#include <src/sequencer.h>
+#include <src/gpio_input.h>
+#include <src/gpio_output.h>
+#include <src/writefile.h>
 #include <wiringPi.h>
-#include "mainwindow.h"
+#include "src/mainwindow.h"
 #include <QApplication>
 
 using namespace std;
