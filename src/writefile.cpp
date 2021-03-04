@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <src/writefile.h>
+#include <include/writefile.h>
 #include <wiringPi.h>
-#include "src/mainwindow.h"
+#include "include/mainwindow.h"
 #include <QApplication>
 
 using namespace std;

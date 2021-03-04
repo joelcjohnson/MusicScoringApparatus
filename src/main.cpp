@@ -1,7 +1,6 @@
-#include "src/mainwindow.h"
 #include <QApplication>
-#include <src/sequencer.h>
-#include <src/mainwindow.h>
+#include <include/sequencer.h>
+#include <include/mainwindow.h>
 
 using namespace std;
 QString filename = "No Input"; //called null for testing reasons.

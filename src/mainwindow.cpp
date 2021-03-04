@@ -1,6 +1,6 @@
-#include "src/mainwindow.h"
+#include "include/mainwindow.h"
 #include "ui_mainwindow.h"
-#include "src/sequencer.h"
+#include "include/sequencer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

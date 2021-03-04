@@ -26,23 +26,23 @@ INCLUDEPATH += /usr/include/c++/6.3.0/
 
 
 SOURCES += \
-    gpio_input.cpp \
-    gpio_output.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    sequencer.cpp \
-    writefile.cpp
+    src/gpio_input.cpp \
+    src/gpio_output.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/sequencer.cpp \
+    src/writefile.cpp
 
 
 HEADERS  += \
-    src/gpio_input.h \
-    src/gpio_output.h \
-    src/mainwindow.h \
-    src/sequencer.h \
-    src/writefile.h \
+    include/gpio_input.h \
+    include/gpio_output.h \
+    include/mainwindow.h \
+    include/sequencer.h \
+    include/writefile.h
 
 FORMS    += \
-    mainwindow.ui \
+    ui/mainwindow.ui
 
 
 

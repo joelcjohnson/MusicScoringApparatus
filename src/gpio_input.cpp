@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <src/gpio_input.h>
+#include <include/gpio_input.h>
 #include <wiringPi.h>
 
 using namespace std;
