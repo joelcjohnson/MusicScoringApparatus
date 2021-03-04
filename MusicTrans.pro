@@ -25,58 +25,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += /usr/include/c++/6.3.0/
 
 
-SOURCES += main.cpp\
-    sequencer.cpp \
-    gpio_output.cpp \
+SOURCES += \
     gpio_input.cpp \
-    writefile.cpp \
+    gpio_output.cpp \
+    main.cpp \
     mainwindow.cpp \
-    Source Files/gpio_input.cpp \
-    Source Files/gpio_output.cpp \
-    Source Files/initializer_pi.cpp \
-    Source Files/main.cpp \
-    Source Files/mainwindow.cpp \
-    Source Files/sequencer.cpp \
-    Source Files/writefile.cpp \
-    Source Files/gpio_input.cpp \
-    Source Files/gpio_output.cpp \
-    Source Files/initializer_pi.cpp \
-    Source Files/main.cpp \
-    Source Files/mainwindow.cpp \
-    Source Files/sequencer.cpp \
-    Source Files/writefile.cpp \
-    Source Files/gpio_input.cpp \
-    Source Files/gpio_input.cpp \
-    Source Files/gpio_output.cpp \
-    Source Files/initializer_pi.cpp \
-    Source Files/main.cpp \
-    Source Files/mainwindow.cpp \
-    Source Files/sequencer.cpp \
-    Source Files/writefile.cpp \
-    Source Files/gpio_input.cpp \
-    Source Files/gpio_output.cpp \
-    Source Files/initializer_pi.cpp \
-    Source Files/main.cpp \
-    Source Files/mainwindow.cpp \
-    Source Files/sequencer.cpp \
-    Source Files/writefile.cpp
+    sequencer.cpp \
+    writefile.cpp
+
 
 HEADERS  += \
-    gpio_output.h \
-    sequencer.h \
-    gpio_input.h \
-    writefile.h \
-    mainwindow.h \
-    Headers/gpio_input.h \
-    Headers/gpio_output.h \
-    Headers/initializer_pi.h \
-    Headers/mainwindow.h \
-    Headers/sequencer.h \
-    Headers/writefile.h
+    src/gpio_input.h \
+    src/gpio_output.h \
+    src/mainwindow.h \
+    src/sequencer.h \
+    src/writefile.h \
 
 FORMS    += \
     mainwindow.ui \
-    ui/mainwindow.ui
+
 
 
 LIBS += -L/usr/local/lib -lwiringPi
@@ -85,6 +52,10 @@ LIBS += -L/usr/local/lib -lwiringPiDev
 LIBS += -L/usr/local/lib -lpthread
 
 
-DISTFILES +=
+DISTFILES += \
+    README.md
 
 RESOURCES +=
+
+SUBDIRS += \
+    MusicTrans.pro
