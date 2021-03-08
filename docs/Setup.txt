@@ -1,0 +1,16 @@
+How to get raspberry pi 4B set up for MusicTrans.
+MusicTrans currently requires both QT and wiringpi to compile.
+
+wiringpi setup comands
+	1.	cd /tmp
+	2. 	wget http://project-dowloads.drogon.net/wiringpi-latest.deb
+	3.	sudo dpkg -i wiringpi-latest.deb
+
+QT Qmake and Qcreator setup comands
+	1.	sudo apt-get update
+	2.	sudo apt-get install qt4-dev-tools
+	5.	sudo apt install qt5-qmake
+	4.	sudo apt-get build-dep qt5-qmake
+	5.	sudo apt-get install qtcreator
+
+
