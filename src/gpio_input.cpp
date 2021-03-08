@@ -5,7 +5,7 @@
 
 using namespace std;
 extern int volume;
-extern const int CONVST = 16;
+
 
 /*  PURPOSE of this object.  
 /   To tell the Raspberry PI which of its I/O pins are inputs.
@@ -14,11 +14,9 @@ extern const int CONVST = 16;
 */
 gpio_input::gpio_input()
 {
- wiringPiSetup();
+    wiringPiSetup();
 
 
-    pinMode(CONVST,OUTPUT);
-    digitalWrite(CONVST,HIGH);
 
  	  // Declare variables (eg. ADC_00) and associate each of them to a Raspberry PI I/O Pin.  
     const int ADC_00 = 7;   //declares ADC output/ Pi Inputs
@@ -91,6 +89,5 @@ gpio_input::gpio_input()
        //cout << "decimal Value = " << decimal << endl;
        volume = decimal;
 
-
-    digitalWrite(CONVST,LOW);   // not sure why this is in the input object, given it is a write command.
+   // not sure why this is in the input object, given it is a write command.
 }

@@ -2,8 +2,6 @@
 #include <include/sequencer.h>
 #include <include/mainwindow.h>
 
-using namespace std;
-QString filename = "No Input"; //called null for testing reasons.
 int main(int argc, char *argv[])
 {
 

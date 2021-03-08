@@ -12,11 +12,10 @@
 using namespace std;
 
 
-int volume = 0;
-int notevalue;
-int octavevalue;
-const int CONVST = 16;
-extern bool running;
+int volume = 0;             //Integer to hold the volume measured
+int notevalue;              //holds note variable
+int octavevalue;            //holds ocatave varrible
+const int CONVST = 16;      //
 
 /*  PURPOSE of this object
 /   To control the Note Multiplexors and the Octave Multiplexor on the Analog MUX card
@@ -33,57 +32,52 @@ sequencer::sequencer()
 {
     wiringPiSetup();    // enable the Raspberry PI to interface with its I/O pins
 
-
-    notevalue = 1;
-    octavevalue = 1;
+    notevalue = 1;      //start collecting with note 1
+    octavevalue = 1;    //start collecting on ocatve 1
 
     // Declare variables (eg. CS and RD) and associate each of them to a Raspberry PI I/O Pin.
-    const int RESET = 15;
-
-    const int CS = 8;
-    const int RD = 9;
-    const int BUSY = 6;
+    const int RESET = 15;       //GPIO.15  -note for wriringpi version 2.52
+    const int CONVST = 30;      //GPIO.30
+    const int RD = 8;           //GPIO.8
+    const int BUSY = 6;         //GPIO.6
 
     // Tell the Raspberry PI whether the I/O pins set to variables above will be 
-    
 	//    Output pins or Input pins.
-    pinMode(RESET,OUTPUT);
-    pinMode(CS,OUTPUT);
-    pinMode(RD,OUTPUT);
-    pinMode(BUSY,INPUT);
+    pinMode(RESET,OUTPUT);      //ADC Reset active low
+    pinMode(RD,OUTPUT);         //ADC read active low
+    pinMode(BUSY,INPUT);        //ADC BUS is ready, 0 means yes
+    pinMode(CONVST,OUTPUT);     //ADC convert active low
 
 	/* Initialize the Output Signals (pins) to LOW or HIGH (logical '0' or logical '1')
-
 	/  These are the lines that set up (or control) the ADC and tell it when to take 
-
 	/  snapshots of the voltage on its input. 
-
     */    
     digitalWrite(RESET,LOW);
+    delay(20);
     digitalWrite(RESET,HIGH);
-    digitalWrite(CS,LOW);
 
 
 	//  Loop through the code in the 'for' loop.
-
 	//  Note that the timestamp test ( '>-1' ) is always true, so the loop will go 
-
 	//  on indefinitely. 
     for (timestamp = 0;timestamp<=84;timestamp++){
 
-        gpio_output();
+        digitalWrite(CONVST,HIGH);
+        digitalWrite(CONVST,LOW);
+
+        gpio_output();          //output object for telling MUX what note/octave we want.
+
         // see if the ADC is busy doing an Analog-to-Digital conversion (BUSY == 1).
 		// when it is no longer busy (BUSY==0), break out of the while loop.
         while(1){
             if (digitalRead(BUSY)==0){break;}
         }
-        // Tell the ADC to take a snapshot of the voltage on its input. 
-        digitalWrite(RD,LOW);
-        gpio_input();
-        digitalWrite(RD,HIGH); // return the Read (RD) line to HIGH when done
 
-        writefile();
+        digitalWrite(RD,LOW);   // Tell the ADC to take a snapshot of the voltage on its input
+        gpio_input();           //input object reads volume from ADC
+        digitalWrite(RD,HIGH);  // return the Read (RD) line to HIGH when done
 
+        writefile();            //writefile object writes to ourfile.
         	
 
         notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
@@ -92,13 +86,6 @@ sequencer::sequencer()
             if (octavevalue == 8){      // Check if incremented past 7th octave
                 octavevalue = 1;}       // If yes, then set the octave value to 1;
             notevalue = 1;}             // notevalue back to '1' (the 'C' note) 
-		
-
-		
-
-		
-
-    //cout << "Hello sequencer!" << endl;
 
 }
 

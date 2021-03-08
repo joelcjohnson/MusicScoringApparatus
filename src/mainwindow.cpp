@@ -37,7 +37,7 @@ void MainWindow::on_EnterKeyButton_clicked()
     This funtion sets our user inputed string as the name of our .txt file
     This updates everytime the text changes in the text box...
 */
-extern QString filename;
+QString filename;
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
         filename = arg1;
