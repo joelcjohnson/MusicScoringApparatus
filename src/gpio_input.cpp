@@ -3,7 +3,7 @@
 #include <include/gpio_input.h>
 #include <wiringPi.h>
 
-using namespace std;
+using namespace std;        //for 'iostream' and 'string' above
 extern int volume;
 
 

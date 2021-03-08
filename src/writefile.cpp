@@ -6,7 +6,7 @@
 #include "include/mainwindow.h"
 #include <QApplication>
 
-using namespace std;
+using namespace std;        //for 'iostream' and 'string' above
 
 extern int notevalue;
 extern int octavevalue;

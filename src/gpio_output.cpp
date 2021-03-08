@@ -3,7 +3,7 @@
 #include <include/gpio_output.h>
 #include <wiringPi.h>
 
-using namespace std;
+using namespace std;        //for 'iostream' and 'string' above
 extern int notevalue;
 extern int octavevalue;
 /*  PURPOSE of this object.

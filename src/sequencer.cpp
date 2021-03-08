@@ -9,7 +9,7 @@
 #include "include/mainwindow.h"
 #include <QApplication>
 
-using namespace std;
+using namespace std;        //for 'iostream' and 'string' above
 
 
 int volume = 0;             //Integer to hold the volume measured
