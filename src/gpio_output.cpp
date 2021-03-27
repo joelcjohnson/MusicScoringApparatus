@@ -66,8 +66,6 @@ gpio_output::gpio_output()
     if (binaryNum2[1]==true){ digitalWrite(ob2,HIGH); }else{ digitalWrite(ob2,LOW); }
     if (binaryNum2[2]==true){ digitalWrite(ob3,HIGH); }else{ digitalWrite(ob3,LOW); }
 
-
-
 }
 
 

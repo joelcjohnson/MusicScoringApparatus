@@ -16,8 +16,6 @@ gpio_input::gpio_input()
 {
     wiringPiSetup();
 
-
-
  	  // Declare variables (eg. ADC_00) and associate each of them to a Raspberry PI I/O Pin.  
     const int ADC_00 = 7;   //declares ADC output/ Pi Inputs
     const int ADC_01 = 0;
@@ -59,10 +57,10 @@ gpio_input::gpio_input()
     }
 
     /*  Read the values on each of the Raspberry PI's input pins (whether a logical '0' or a
-	   /	logical '1', and put those values into the appropriate place in the ADCIn array. The
-	   /   values on the PI's input pins come from the ADC - the 12 bits of data from the ADC.
-	   */
- 	  //  Initialize the 12-bit 'ADCIn' array, so it is all 0s 
+    /	logical '1', and put those values into the appropriate place in the ADCIn array. The
+    /   values on the PI's input pins come from the ADC - the 12 bits of data from the ADC.
+    */
+    //  Initialize the 12-bit 'ADCIn' array, so it is all 0s
     ADCIn[0] = digitalRead(ADC_00); //phyisicaly reading the values of the input lines
     ADCIn[1] = digitalRead(ADC_01);
     ADCIn[2] = digitalRead(ADC_02);

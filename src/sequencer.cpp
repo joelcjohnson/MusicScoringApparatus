@@ -77,7 +77,7 @@ sequencer::sequencer()
         gpio_input();           //input object reads volume from ADC
         digitalWrite(RD,HIGH);  // return the Read (RD) line to HIGH when done
 
-        writefile();            //writefile object writes to ourfile.
+        writefile(notevalue,octavevalue,volume,timestamp);            //writefile object writes to ourfile.
         	
 
         notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
