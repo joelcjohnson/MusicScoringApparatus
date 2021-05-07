@@ -1,6 +1,17 @@
 #include <QApplication>
 #include <include/sequencer.h>
 #include <include/mainwindow.h>
+#include <wiringPi.h>
+#include <include/gpio_mapping.h>
+
+/*
+ * Initialize the GPIO upfront since wiringpi doesn't release
+ * the gpio until program is closed.
+ */
+int initialize_gpio(){
+
+    return 0;
+}
 
 int main(int argc, char *argv[])
 {

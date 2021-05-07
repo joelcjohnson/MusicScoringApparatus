@@ -2,35 +2,18 @@
 #include <string>
 #include <include/gpio_input.h>
 #include <wiringPi.h>
+#include <include/gpio_mapping.h>
 
 using namespace std;        //for 'iostream' and 'string' above
-extern int volume;
-
 
 /*  PURPOSE of this object.  
 /   To tell the Raspberry PI which of its I/O pins are inputs.
 /   To initialize those inputs to either logical '0's or '1's  (LOW or HIGH).
 /   To read the values on the input pins.  
 */
-gpio_input::gpio_input()
+int gpio_input()
 {
-    wiringPiSetup();
-
- 	  // Declare variables (eg. ADC_00) and associate each of them to a Raspberry PI I/O Pin.  
-    const int ADC_00 = 7;   //declares ADC output/ Pi Inputs
-    const int ADC_01 = 0;
-    const int ADC_02 = 2;
-    const int ADC_03 = 3;
-    const int ADC_04 = 21;
-    const int ADC_05 = 22;
-    const int ADC_06 = 23;
-    const int ADC_07 = 24;
-    const int ADC_08 = 25;
-    const int ADC_09 = 1;
-    const int ADC_10 = 4;
-    const int ADC_11 = 5;
-
- 	// Tell the Raspberry PI that the I/O pins set to variables above will be Input pins.                                                           
+    // Tell the Raspberry PI that the I/O pins set to variables above will be Input pins.
     pinMode(ADC_00,INPUT);  //sets ADC outputs as raspberry pi inputs
     pinMode(ADC_01,INPUT);
     pinMode(ADC_02,INPUT);
@@ -43,14 +26,13 @@ gpio_input::gpio_input()
     pinMode(ADC_09,INPUT);
     pinMode(ADC_10,INPUT);
     pinMode(ADC_11,INPUT);
-
    /*  Explanation: The output of the ADC (its 12 most significant bits) will be connected to
 	  /   (or wired to) the 12 I/O pins above (pins 7, 0, 2, 3, etc.).  When the Raspberry PI 
 	  /   reads what is on the 12 I/O pins (either a '0' or a '1' on each pin), it is reading the 
 	  /   12-bit output of the ADC.  It then puts those 12 values (of '0's and '1's) into the 12 
 	  /   integer variables declared above (ADC_00, ADC_01, etc.) 
 	  */
- 
+
     bool ADCIn[12]; //sets all values in the array to 0
         for (int i=0;i<12;i++){
             ADCIn[i] = 0;
@@ -85,7 +67,8 @@ gpio_input::gpio_input()
 
  	     //Test: print the decimal representation of the ADC output so one can see if it is correct.
        //cout << "decimal Value = " << decimal << endl;
-       volume = decimal;
+
 
    // not sure why this is in the input object, given it is a write command.
+       return decimal;
 }
