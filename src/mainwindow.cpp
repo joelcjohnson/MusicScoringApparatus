@@ -159,25 +159,6 @@ void MainWindow::on_checkBox_5_toggled(bool checked)//CS
     }
     else{
         digitalWrite(CS,LOW);
-        if(selection == 0){
-            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
-            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
-                octavevalue++;              // Go to the next octave.
-                if (octavevalue == 7){      // Check if incremented past 7th octave
-                    octavevalue = 1;}       // If yes, then set the octave value to 1;
-                notevalue = 1;}
-        }
-        else if(selection == 1){
-           octavevalue++;              // Go to the next octave.
-           if (octavevalue == 7){      // Check if incremented past 7th octave
-               octavevalue = 0;}
-
-        }
-        else if(selection == 2){
-            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
-            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
-                notevalue = 0;}
-        }
     }
 }
 
