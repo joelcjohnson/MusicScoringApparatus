@@ -11,7 +11,8 @@ int notevalue;
 int octavevalue;
 int timestamp;
 bool slow;
-MainWindow::MainWindow(QWidget *parent) :
+bool running;
+MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -157,7 +158,37 @@ void MainWindow::on_checkBox_CONVST_toggled(bool checked)//CONVST
 
 void MainWindow::on_pushButton_Start_clicked()
 {
+    timestamp = 0;
+    running=1;
+    while(running==1){
+        sequencer(notevalue,octavevalue,timestamp,filename,slow);
+        if(selection == 0){
+            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
+            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
+                octavevalue++;              // Go to the next octave.
+                if (octavevalue == 7){      // Check if incremented past 7th octave
+                    octavevalue = 0;}       // If yes, then set the octave value to 1;
+                notevalue = 0;}
+        }
+        else if(selection == 1){
+           octavevalue++;              // Go to the next octave.
+           if (octavevalue == 7){      // Check if incremented past 7th octave
+               octavevalue = 0;}
 
+        }
+        else if(selection == 2){
+            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
+            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
+                notevalue = 0;}
+        }
+
+        timestamp++;
+    }
 }
 
 
+
+void MainWindow::on_pushButton_Stop_clicked()
+{
+    running=0;
+}

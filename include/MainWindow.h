@@ -14,10 +14,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
-
 signals:
-
 
 public slots:
     void on_lineEdit_textChanged(const QString &arg1);
@@ -35,6 +32,8 @@ public slots:
 private slots:
 
 
+
+    void on_pushButton_Stop_clicked();
 
 private:
     Ui::MainWindow *ui;
