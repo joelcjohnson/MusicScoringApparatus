@@ -6,7 +6,7 @@
 #include <include/gpio_output.h>
 #include <include/writefile.h>
 #include <wiringPi.h>
-#include "include/mainwindow.h"
+#include "include/MainWindow.h"
 #include <QApplication>
 #include <include/gpio_mapping.h>
 

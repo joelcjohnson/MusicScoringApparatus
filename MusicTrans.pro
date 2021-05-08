@@ -30,24 +30,23 @@ SOURCES += \
     src/gpio_input.cpp \
     src/gpio_output.cpp \
     src/main.cpp \
-    src/mainwindow.cpp \
     src/sequencer.cpp \
-    src/writefile.cpp
+    src/writefile.cpp \
+    src/MainWindow.cpp
 
 
 HEADERS  += \
     include/gpio_input.h \
     include/gpio_output.h \
-    include/mainwindow.h \
     include/sequencer.h \
     include/writefile.h \
     include/gpio_input.h \
     include/gpio_output.h \
-    include/mainwindow.h \
     include/sequencer.h \
     include/writefile.h \
     include/gpio_mapping.h \
-    arch/pi4/gpio.h
+    arch/pi4/gpio.h \
+    include/MainWindow.h
 
 FORMS    += \
     ui/mainwindow.ui

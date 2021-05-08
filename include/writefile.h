@@ -6,7 +6,7 @@
 #include <string>
 #include <include/writefile.h>
 #include <wiringPi.h>
-#include "include/mainwindow.h"
+#include "include/MainWindow.h"
 #include <QApplication>
 #include <QApplication>
 

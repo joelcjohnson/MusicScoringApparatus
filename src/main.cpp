@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <include/sequencer.h>
-#include <include/mainwindow.h>
+#include <include/MainWindow.h>
 #include <wiringPi.h>
 #include <include/gpio_mapping.h>
 
