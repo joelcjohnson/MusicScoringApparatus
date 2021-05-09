@@ -29,15 +29,14 @@ public slots:
     void on_checkBox_CS_toggled(bool checked);
     void on_checkBox_CONVST_toggled(bool checked);
     void on_pushButton_Start_clicked();
+    void on_pushButton_Stop_clicked();
 private slots:
 
 
 
-    void on_pushButton_Stop_clicked();
-
 private:
     Ui::MainWindow *ui;
-    int selection;
+
 
 
 };

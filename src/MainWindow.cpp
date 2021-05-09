@@ -3,8 +3,13 @@
 #include "include/sequencer.h"
 #include <wiringPi.h>
 #include <include/gpio_mapping.h>
+#include "include/mythread.h"
 #include <QString>
 #include <QObject>
+#include <iostream>
+#include <fstream>
+#include <QSignalSpy>
+
 QString filename;
 int samples;
 int notevalue;
@@ -12,6 +17,8 @@ int octavevalue;
 int timestamp;
 bool slow;
 bool running;
+int selection;
+Mythread mThread;
 MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -156,39 +163,33 @@ void MainWindow::on_checkBox_CONVST_toggled(bool checked)//CONVST
     }
 }
 
+
+
 void MainWindow::on_pushButton_Start_clicked()
 {
-    timestamp = 0;
-    running=1;
-    while(running==1){
-        sequencer(notevalue,octavevalue,timestamp,filename,slow);
-        if(selection == 0){
-            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
-            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
-                octavevalue++;              // Go to the next octave.
-                if (octavevalue == 7){      // Check if incremented past 7th octave
-                    octavevalue = 0;}       // If yes, then set the octave value to 1;
-                notevalue = 0;}
-        }
-        else if(selection == 1){
-           octavevalue++;              // Go to the next octave.
-           if (octavevalue == 7){      // Check if incremented past 7th octave
-               octavevalue = 0;}
-
-        }
-        else if(selection == 2){
-            notevalue++;                    // Go to the next note.  (Increment the note selector lines, change the note MUXs)
-            if (notevalue == 12){           // See if the note is incremented past a 'B' note.  If yes, then ...
-                notevalue = 0;}
-        }
-
-        timestamp++;
-    }
+    mThread.start();
+    mThread.filename = filename;
+    mThread.samples = samples;
+    mThread.notevalue = notevalue;
+    mThread.octavevalue = octavevalue;
+    mThread.timestamp = timestamp;
+    mThread.slow = slow;
+    mThread.selection = selection;
+    mThread.running = 1;
+    //std::cout << "start the function" << std::endl;
 }
-
 
 
 void MainWindow::on_pushButton_Stop_clicked()
 {
-    running=0;
+    running = 1;
+    //std::cout << "stop the function" << std::endl;
+    mThread.running = 0;
 }
+
+
+
+
+
+
+

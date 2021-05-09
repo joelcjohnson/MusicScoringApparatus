@@ -3,6 +3,7 @@
 #include <include/MainWindow.h>
 #include <wiringPi.h>
 #include <include/gpio_mapping.h>
+#include "include/mythread.h"
 
 /*
  * Initialize the GPIO upfront since wiringpi doesn't release

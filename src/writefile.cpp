@@ -31,7 +31,8 @@ int writefile(int timestamp,int volume, int notevalue, int octavevalue, QString 
     /*  This line of code writes what we are recording in real time to the text document we named
         notice how I list the order note volume then timestamp.. later this will be different but now this is fine.
     */
-    ourfile << note1 << note2 << " " << octavevalue << " " << volume << " " << timestamp << endl;
+    ourfile << note1 << note2 << " " << octavevalue+1 << " " << volume << " " << timestamp << endl;
     cout << note1 << note2 << " " << octavevalue+1 << " " << volume << " " << timestamp << endl;
 
+    return 0;
 }

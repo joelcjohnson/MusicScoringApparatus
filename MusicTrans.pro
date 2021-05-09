@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += network
+QT       += testlib
 
 greaterThan(QT_MAJOR_VERSION, 5): QT += widgets
 
@@ -32,7 +33,8 @@ SOURCES += \
     src/main.cpp \
     src/sequencer.cpp \
     src/writefile.cpp \
-    src/MainWindow.cpp
+    src/MainWindow.cpp \
+    src/mythread.cpp
 
 
 HEADERS  += \
@@ -46,7 +48,9 @@ HEADERS  += \
     include/writefile.h \
     include/gpio_mapping.h \
     arch/pi4/gpio.h \
-    include/MainWindow.h
+    include/MainWindow.h \
+    src/mythread.h \
+    include/mythread.h
 
 FORMS    += \
     ui/mainwindow.ui
