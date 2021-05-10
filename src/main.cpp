@@ -1,22 +1,17 @@
 #include <QApplication>
-#include <include/sequencer.h>
 #include <include/MainWindow.h>
-#include <wiringPi.h>
-#include <include/gpio_mapping.h>
-#include "include/mythread.h"
 
 /*
  * Initialize the GPIO upfront since wiringpi doesn't release
  * the gpio until program is closed.
  */
 int initialize_gpio(){
-
+    //not implemented a.t.m.
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
-
     QApplication a(argc, argv);
 
     /* Our main funtion initialises the mainwindow object for our user input.

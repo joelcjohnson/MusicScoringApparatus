@@ -1,10 +1,7 @@
-#include <iostream>
-#include <string>
 #include <include/gpio_input.h>
-#include <wiringPi.h>
 #include <include/gpio_mapping.h>
+#include <wiringPi.h>
 
-using namespace std;        //for 'iostream' and 'string' above
 
 /*  PURPOSE of this object.  
 /   To tell the Raspberry PI which of its I/O pins are inputs.
@@ -26,17 +23,15 @@ int gpio_input()
     pinMode(ADC_09,INPUT);
     pinMode(ADC_10,INPUT);
     pinMode(ADC_11,INPUT);
-   /*  Explanation: The output of the ADC (its 12 most significant bits) will be connected to
-	  /   (or wired to) the 12 I/O pins above (pins 7, 0, 2, 3, etc.).  When the Raspberry PI 
-	  /   reads what is on the 12 I/O pins (either a '0' or a '1' on each pin), it is reading the 
-	  /   12-bit output of the ADC.  It then puts those 12 values (of '0's and '1's) into the 12 
-	  /   integer variables declared above (ADC_00, ADC_01, etc.) 
-	  */
 
-    bool ADCIn[12]; //sets all values in the array to 0
-        for (int i=0;i<12;i++){
-            ADCIn[i] = 0;
-    }
+    /*  Explanation: The output of the ADC (its 12 most significant bits) will be connected to
+    /   (or wired to) the 12 I/O pins above (pins 7, 0, 2, 3, etc.).  When the Raspberry PI
+    /   reads what is on the 12 I/O pins (either a '0' or a '1' on each pin), it is reading the
+    /   12-bit output of the ADC.  It then puts those 12 values (of '0's and '1's) into the 12
+    /   integer variables declared above (ADC_00, ADC_01, etc.)
+    */
+
+    bool ADCIn[12]; //declare an array ro hold the ADC inputs
 
     /*  Read the values on each of the Raspberry PI's input pins (whether a logical '0' or a
     /	logical '1', and put those values into the appropriate place in the ADCIn array. The
@@ -56,19 +51,11 @@ int gpio_input()
     ADCIn[10] = digitalRead(ADC_10);
     ADCIn[11] = digitalRead(ADC_11);
 
-    //prints The read ADC input bool array values
-    for (int i=0;i<12;i++){
-       //cout << "ADC " << i << " = " << ADCIn[i] << endl;
-}
-
-       //turn binary array into decimal integer
-    int decimal = ADCIn[0]*1 + ADCIn[1]*2 + ADCIn[2]*4 +ADCIn[3]*8 +ADCIn[4]*16 +ADCIn[5]*32 +ADCIn[6]*64 +ADCIn[7]*128 +ADCIn[8]*256 +ADCIn[9]*512 +ADCIn[10]*1024 +ADCIn[11]*2048;
-       //cout << "decimal Value = " << decimal << endl;
-
- 	     //Test: print the decimal representation of the ADC output so one can see if it is correct.
-       //cout << "decimal Value = " << decimal << endl;
+    //turn binary array into decimal integer
+    int decimal = ADCIn[0]*1 + ADCIn[1]*2 + ADCIn[2]*4 +ADCIn[3]*8
+                 +ADCIn[4]*16 +ADCIn[5]*32 +ADCIn[6]*64 +ADCIn[7]*128
+                 +ADCIn[8]*256 +ADCIn[9]*512 +ADCIn[10]*1024 +ADCIn[11]*2048;
 
 
-   // not sure why this is in the input object, given it is a write command.
-       return decimal;
+    return decimal;  //returns the decimal value of the volume
 }

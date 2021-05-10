@@ -1,13 +1,6 @@
 #include "include/mythread.h"
 #include <QtCore>
-#include <QDebug>
-#include <iostream>
-#include <fstream>
-#include "include/MainWindow.h"
-#include "ui_mainwindow.h"
 #include "include/sequencer.h"
-#include <wiringPi.h>
-#include <include/gpio_mapping.h>
 #include <QString>
 #include <QObject>
 
@@ -18,7 +11,6 @@ Mythread::Mythread()
 
 void Mythread::run()
 {
-    int i = 0;
     while(running==1){
         sequencer(notevalue,octavevalue,timestamp,filename,slow);
         if(selection == 0){

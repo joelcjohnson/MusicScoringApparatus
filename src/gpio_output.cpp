@@ -1,10 +1,6 @@
-#include <iostream>
-#include <string>
 #include <include/gpio_output.h>
-#include <wiringPi.h>
 #include <include/gpio_mapping.h>
-
-using namespace std;        //for 'iostream' and 'string' above
+#include <wiringPi.h>
 
 /*  PURPOSE of this object.
 /   To tell the Raspberry PI which of its I/O pins are outputs.
@@ -15,7 +11,7 @@ using namespace std;        //for 'iostream' and 'string' above
 int gpio_output(int notevalue,int octavevalue)
 {
     wiringPiSetup();
-    //cout << "Hello gpio output!" << endl;
+
     // Tell the Raspberry PI that the I/O pins set to variables above will be Output pins.
     pinMode(nb1,OUTPUT);
     pinMode(nb2,OUTPUT);
@@ -54,6 +50,7 @@ int gpio_output(int notevalue,int octavevalue)
     if (binaryNum2[0]==true){ digitalWrite(ob1,HIGH); }else{ digitalWrite(ob1,LOW); }
     if (binaryNum2[1]==true){ digitalWrite(ob2,HIGH); }else{ digitalWrite(ob2,LOW); }
     if (binaryNum2[2]==true){ digitalWrite(ob3,HIGH); }else{ digitalWrite(ob3,LOW); }
+
     return 0;
 }
 
